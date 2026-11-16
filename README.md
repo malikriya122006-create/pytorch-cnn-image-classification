@@ -1,127 +1,112 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "26300e49-4205-4c0d-8437-6b99001e9b9e",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# CNN Image Classification using PyTorch\n",
-    "\n",
-    "A deep learning project implementing a Convolutional Neural Network (CNN) from scratch using PyTorch to classify images from the CIFAR-10 dataset.\n",
-    "\n",
-    "## Overview\n",
-    "\n",
-    "This project explores image classification using a custom-built CNN architecture. The model is trained on the CIFAR-10 dataset to classify images into 10 different categories.\n",
-    "\n",
-    "The complete implementation is provided in a Jupyter Notebook.\n",
-    "\n",
-    "## Dataset\n",
-    "\n",
-    "**CIFAR-10**\n",
-    "\n",
-    "- 60,000 colour images\n",
-    "- 10 image classes\n",
-    "- 50,000 training images\n",
-    "- 10,000 testing images\n",
-    "- Image dimensions: 32 × 32 pixels\n",
-    "\n",
-    "The dataset is downloaded automatically using Torchvision.\n",
-    "\n",
-    "## Tech Stack\n",
-    "\n",
-    "- Python\n",
-    "- PyTorch\n",
-    "- Torchvision\n",
-    "\n",
-    "## Implementation\n",
-    "\n",
-    "### 1. Data Preprocessing\n",
-    "- Loaded CIFAR-10 using Torchvision.\n",
-    "- Converted images into tensors.\n",
-    "- Applied image normalization using mean and standard deviation of 0.5 for each RGB channel.\n",
-    "\n",
-    "### 2. Data Loading\n",
-    "- Created training and testing datasets.\n",
-    "- Used PyTorch DataLoaders.\n",
-    "- Set batch size to 64.\n",
-    "- Enabled shuffling for the training dataset.\n",
-    "\n",
-    "### 3. CNN Architecture\n",
-    "\n",
-    "Designed and implemented a CNN from scratch using `torch.nn.Module`.\n",
-    "\n",
-    "The architecture consists of:\n",
-    "\n",
-    "| Layer | Configuration |\n",
-    "|---|---|\n",
-    "| Convolutional Layer 1 | 3 → 32 filters |\n",
-    "| Convolutional Layer 2 | 32 → 64 filters |\n",
-    "| Convolutional Layer 3 | 64 → 128 filters |\n",
-    "| Activation | ReLU |\n",
-    "| Pooling | Max Pooling (2 × 2) |\n",
-    "| Fully Connected Layer | 2048 → 256 |\n",
-    "| Output Layer | 256 → 10 |\n",
-    "\n",
-    "The convolutional blocks extract image features, while the fully connected layers perform classification.\n",
-    "\n",
-    "### 4. Model Training\n",
-    "\n",
-    "- Loss Function: Cross Entropy Loss\n",
-    "- Optimizer: Adam\n",
-    "- Training Epochs: 10\n",
-    "- Used backpropagation and gradient descent to update model parameters.\n",
-    "\n",
-    "### 5. Model Evaluation\n",
-    "\n",
-    "- Evaluated the trained model on the test dataset.\n",
-    "- Used `model.eval()` and `torch.no_grad()` during evaluation.\n",
-    "- Calculated classification accuracy by comparing predicted labels with actual labels.\n",
-    "\n",
-    "## Project Structure\n",
-    "\n",
-    "```text\n",
-    "pytorch-cnn-image-classification/\n",
-    "│\n",
-    "├── CNN_CIFAR10.ipynb\n",
-    "├── requirements.txt\n",
-    "├── README.md\n",
-    "└── .gitignore\n",
-    "```\n",
-    "Open `CNN_CIFAR10.ipynb` and run the notebook cells.\n",
-    "\n",
-    "The CIFAR-10 dataset will be downloaded automatically when the dataset-loading cells are executed.\n",
-    "\n",
-    "## Learning Outcomes\n",
-    "\n",
-    "- Understanding CNN architecture and feature extraction.\n",
-    "- Implementing convolutional and pooling layers using PyTorch.\n",
-    "- Understanding forward propagation and backpropagation.\n",
-    "- Training deep learning models.\n",
-    "- Evaluating image classification models using test accuracy.\n"
-   ]
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (base)",
-   "language": "python",
-   "name": "base"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.13.9"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+# CNN Image Classification using PyTorch
+
+A deep learning project implementing a Convolutional Neural Network (CNN) from scratch using PyTorch to classify images from the CIFAR-10 dataset.
+
+## Overview
+
+This project explores image classification using a custom-built CNN architecture. The model is trained on the CIFAR-10 dataset to classify images into 10 different categories.
+
+The complete implementation is provided in a Jupyter Notebook.
+
+## Dataset
+
+**CIFAR-10**
+
+- 60,000 colour images
+- 10 image classes
+- 50,000 training images
+- 10,000 testing images
+- Image dimensions: 32 × 32 pixels
+
+The dataset is downloaded automatically using Torchvision.
+
+## Tech Stack
+
+- Python
+- PyTorch
+- Torchvision
+- Jupyter Notebook
+
+## Implementation
+
+### 1. Data Preprocessing
+- Loaded CIFAR-10 using Torchvision.
+- Converted images into tensors.
+- Applied image normalization using a mean and standard deviation of 0.5 for each RGB channel.
+
+### 2. Data Loading
+- Used PyTorch DataLoaders.
+- Set batch size to 64.
+- Enabled shuffling for the training dataset.
+
+### 3. CNN Architecture
+
+Designed and implemented a CNN from scratch using `torch.nn.Module`.
+
+| Layer | Configuration |
+|---|---|
+| Convolutional Layer 1 | 3 → 32 filters |
+| Convolutional Layer 2 | 32 → 64 filters |
+| Convolutional Layer 3 | 64 → 128 filters |
+| Activation | ReLU |
+| Pooling | Max Pooling (2 × 2) |
+| Fully Connected Layer | 2048 → 256 |
+| Output Layer | 256 → 10 |
+
+### 4. Model Training
+- Loss Function: Cross Entropy Loss
+- Optimizer: Adam
+- Training Epochs: 10
+- Used backpropagation and gradient descent to update model parameters.
+
+### 5. Model Evaluation
+- Evaluated the trained model on the test dataset.
+- Used `model.eval()` and `torch.no_grad()` during evaluation.
+- Calculated classification accuracy by comparing predicted labels with actual labels.
+
+## Project Structure
+
+```text
+pytorch-cnn-image-classification/
+│
+├── CNN_CIFAR10.ipynb
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+## How to Run
+
+Clone the repository:
+
+```bash
+git clone https://github.com/malikriya122006-create/pytorch-cnn-image-classification.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd pytorch-cnn-image-classification
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Open the notebook:
+
+```bash
+jupyter notebook CNN_CIFAR10.ipynb
+```
+
+Run the notebook cells. The CIFAR-10 dataset will be downloaded automatically when the dataset-loading cells are executed.
+
+## Learning Outcomes
+
+- Understanding CNN architecture and feature extraction.
+- Implementing convolutional and pooling layers using PyTorch.
+- Understanding forward propagation and backpropagation.
+- Training deep learning models.
+- Evaluating image classification models.
