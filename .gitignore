@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.venv/
+
+# System files
+.DS_Store
+
+# IDE settings
+.vscode/
+
+# Dataset and trained model
+data_folder/
+best_cnn_model/
+best_cnn_model
